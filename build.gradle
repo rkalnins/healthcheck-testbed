@@ -52,7 +52,7 @@ dependencies {
 
 
     compile "org.strykeforce.thirdcoast:telemetry:${thirdcoastVersion}"
-    compile "org.strykeforce.thirdcoast:healthcheck:19.3.0"
+    compile "org.strykeforce.thirdcoast:healthcheck:${thirdcoastVersion}"
 
 
     compile "ch.qos.logback:logback-classic:${logbackVersion}"
