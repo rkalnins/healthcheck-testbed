@@ -2,11 +2,8 @@ package frc.team2767.healthchecktest.command
 
 import edu.wpi.first.wpilibj.command.Command
 import frc.team2767.healthchecktest.Robot
-import mu.KotlinLogging
 import org.strykeforce.thirdcoast.healthcheck.HealthCheck
 import org.strykeforce.thirdcoast.healthcheck.healthCheck
-
-private val logger = KotlinLogging.logger {}
 
 class HealthCheckCommand : Command() {
 
@@ -18,7 +15,27 @@ class HealthCheckCommand : Command() {
 
     override fun initialize() {
         healthCheck = healthCheck {
+            talonCheck {
+                name = "motor healthcheck test"
+                talons = Robot.TEST.getTalons()
 
+                val curRange = 0.25..0.75
+                val percent = 0.25
+                val speedMin = 215
+                val speedMax = 250
+
+                timedTest {
+                    percentOutput = percent
+                    currentRange = curRange
+                    speedRange = speedMin..speedMax
+                }
+
+                timedTest {
+                    percentOutput = -percent
+                    currentRange = curRange
+                    speedRange = -speedMax..-speedMin
+                }
+            }
         }
     }
 
