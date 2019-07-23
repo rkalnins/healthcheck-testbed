@@ -8,10 +8,10 @@ import mu.KotlinLogging
 
 class TestSubsystem : Subsystem() {
     private val logger = KotlinLogging.logger {}
-    private var talon = TalonSRX(1)
+    private val id = 6
+    private val talon = TalonSRX(id)
 
     override fun initDefaultCommand() {
-        TODO("not implemented")
     }
 
     init {
